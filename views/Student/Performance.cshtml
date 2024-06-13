@@ -1,0 +1,61 @@
+﻿@model IEnumerable<_5pks.models.Performance>
+
+@{
+    ViewData["Title"] = "Успеваемость";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Успеваемость</h2>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Поиск...">
+        </div>
+    </div>
+    <table class="table table-bordered table-hover" id="performanceTable">
+        <thead>
+            <tr>
+                <th>Семестр</th>
+                <th>Название дисциплины</th>
+                <th>Оценка</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Semester</td>
+                    <td>@item.Subject</td>
+                    <td>@item.Grade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var searchInput = document.getElementById('searchInput');
+            var table = document.getElementById('performanceTable');
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            searchInput.addEventListener('keyup', function () {
+                var filter = searchInput.value.toLowerCase();
+
+                for (var i = 0; i < rows.length; i++) {
+                    var cells = rows[i].getElementsByTagName('td');
+                    var match = false;
+                    for (var j = 0; j < cells.length; j++) {
+                        if (cells[j].innerText.toLowerCase().includes(filter)) {
+                            match = true;
+                            break;
+                        }
+                    }
+                    rows[i].style.display = match ? '' : 'none';
+                }
+            });
+        });
+    </script>
+}
+
+

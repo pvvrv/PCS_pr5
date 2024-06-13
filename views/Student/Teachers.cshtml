@@ -1,0 +1,29 @@
+﻿@model IEnumerable<_5pks.models.Teacher>
+
+@{
+    ViewData["Title"] = "Преподаватели";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Преподаватели</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ФИО преподавателя</th>
+                <th>Название дисциплины</th>
+                <th>Название кафедры</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Subject</td>
+                    <td>@item.Department</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

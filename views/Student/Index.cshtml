@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Добро пожаловать в личный кабинет студента!</h2>
+            <p class="text-center">Выберите действие из меню.</p>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Успеваемость</h5>
+                    <p class="card-text">Просмотрите свою успеваемость по семестрам и дисциплинам.</p>
+                    <a href="@Url.Action("Performance", "Student")" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Достижения</h5>
+                    <p class="card-text">Просмотрите свои личные достижения в учебе, спорте и науке.</p>
+                    <a href="@Url.Action("Achievements", "Student")" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Преподаватели</h5>
+                    <p class="card-text">Просмотрите информацию о преподавателях и их дисциплинах.</p>
+                    <a href="@Url.Action("Teachers", "Student")" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

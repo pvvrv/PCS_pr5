@@ -1,0 +1,94 @@
+﻿@model IEnumerable<_5pks.models.Achievement>
+
+@{
+    ViewData["Title"] = "Достижения";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Достижения</h2>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="date" id="filterDate" class="form-control" placeholder="Фильтр по дате...">
+        </div>
+        <div class="col-md-4">
+            <select id="filterType" class="form-control">
+                <option value="">Все виды</option>
+                <option value="учеба">Учеба</option>
+                <option value="спорт">Спорт</option>
+                <option value="наука">Наука</option>
+            </select>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover" id="achievementsTable">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Вид</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <span class="badge badge-@GetBadgeClass(item.Type)">@item.Type</span>
+                    </td>
+                    <td>@item.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var filterDate = document.getElementById('filterDate');
+            var filterType = document.getElementById('filterType');
+            var table = document.getElementById('achievementsTable');
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            function filterTable() {
+                var date = filterDate.value;
+                var type = filterType.value.toLowerCase();
+
+                for (var i = 0; i < rows.length; i++) {
+                    var cells = rows[i].getElementsByTagName('td');
+                    var match = true;
+
+                    if (date && cells[0].innerText !== date) {
+                        match = false;
+                    }
+                    if (type && cells[1].innerText.toLowerCase() !== type) {
+                        match = false;
+                    }
+
+                    rows[i].style.display = match ? '' : 'none';
+                }
+            }
+
+            filterDate.addEventListener('change', filterTable);
+            filterType.addEventListener('change', filterTable);
+        });
+    </script>
+}
+
+@functions {
+    public string GetBadgeClass(string type)
+    {
+        switch (type.ToLower())
+        {
+            case "учеба":
+                return "primary";
+            case "спорт":
+                return "success";
+            case "наука":
+                return "info";
+            default:
+                return "secondary";
+        }
+    }
+}
+

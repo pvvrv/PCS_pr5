@@ -1,0 +1,8 @@
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.AssemblyInfoInputs.cache
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.AssemblyInfo.cs
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.csproj.CoreCompileInputs.cache
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.RazorAssemblyInfo.cache
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.RazorAssemblyInfo.cs
+C:\Users\shved\source\repos\5PKS\obj\Debug\net8.0\5pks.csproj.AssemblyReference.cache
